@@ -1,0 +1,24 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "src/app.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "node lib/server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "vscode-languageserver": "^5.2.1",
+    "vscode-ws-jsonrpc": "^0.0.3",
+    "ws": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.1",
+    "@types/node": "^11.13.8",
+    "@types/ws": "0.0.39",
+    "ts-node": "^8.1.0",
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.5"
+  }
+}

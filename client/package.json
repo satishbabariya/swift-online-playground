@@ -1,0 +1,45 @@
+{
+  "name": "swift-playground",
+  "version": "0.0.1",
+  "description": "Swift Online Playground with Code IntelliSense",
+  "main": "index.js",
+  "repository": "https://github.com/satishbabariya/swift-online-playground.git",
+  "author": "Satish Babariya",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --env development",
+    "build": "webpack",
+    "watch": "webpack --watch --progress --profile --colors --display-error-details --display-cached",
+    "clean": "rimraf dist"
+  },
+  "engines": {
+    "yarn": "1.0.x || >=1.2.1",
+    "node": ">=10.2.0"
+  },
+  "dependencies": {
+    "@phosphor/algorithm": "^0.1.0",
+    "@phosphor/application": "^0.1.2",
+    "@phosphor/commands": "^0.1.2",
+    "@phosphor/coreutils": "^0.1.1",
+    "@phosphor/default-theme": "^0.1.0",
+    "@phosphor/widgets": "^0.1.4",
+    "monaco-editor": "^0.16.2"
+  },
+  "devDependencies": {
+    "css-loader": "^0.26.1",
+    "file-loader": "^0.10.1",
+    "font-awesome": "^4.7.0",
+    "html-webpack-plugin": "^2.28.0",
+    "monaco-editor-webpack-plugin": "^1.7.0",
+    "rimraf": "^2.6.1",
+    "style-loader": "^0.13.1",
+    "ts-loader": "^2.0.1",
+    "tslint": "^4.5.1",
+    "tslint-loader": "^3.4.3",
+    "typescript": "^3.4.5",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.2.1",
+    "webpack-cli": "^3.3.1",
+    "webpack-dev-server": "^2.4.1"
+  }
+}

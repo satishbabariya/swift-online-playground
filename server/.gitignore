@@ -1,0 +1,12 @@
+*.js
+*.js.map
+.DS_Store
+/lib
+/dist
+/node_modules
+npm-debug.log
+yarn-error.log
+.tscache
+.tsconfig*.json
+!webpack.conf.js
+.idea/
