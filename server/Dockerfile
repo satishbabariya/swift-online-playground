@@ -1,15 +1,3 @@
-FROM node:10 as builder
-
-ARG version=latest
-
-WORKDIR /server
-ADD . .
-
-RUN yarn --cache-folder ./ycache && rm -rf ./ycache
-RUN yarn --pure-lockfile && \
-    yarn run build && \
-    yarn cache clean
-
 FROM satishbabariya/swift as lsp-builder
 
 RUN apt-get -q update && \
@@ -24,6 +12,7 @@ WORKDIR /sourcekit-lsp
 RUN swift build -Xcxx -I/usr/lib/swift && mv `swift build --show-bin-path`/sourcekit-lsp /usr/bin/
 RUN chmod -R o+r /usr/bin/sourcekit-lsp
 
+
 FROM satishbabariya/swift
 
 # Print Installed Swift Version
@@ -33,11 +22,27 @@ RUN swift --version
 ENV SOURCEKIT_TOOLCHAIN_PATH=/usr/lib/swift
 ENV SOURCEKIT_LOGGING=3
 
+ENV DEBIAN_FRONTEND noninteractive
+
+ARG NODE_VERSION=10
+ENV NODE_VERSION $NODE_VERSION
+
+RUN apt-get update
+RUN apt-get -qq update
+RUN apt-get install -y build-essential
+RUN apt-get install -y curl
+RUN curl -sL https://deb.nodesource.com/setup_$NODE_VERSION.x | bash
+RUN apt-get install -y nodejs
+RUN node --version
+
 # Sourcekit-LSP Executable
 COPY --from=lsp-builder /usr/bin/sourcekit-lsp /usr/bin/
 ENV PATH=/usr/bin/sourcekit-lsp:$PATH
 
-COPY --from=builder /lib /lib
+COPY . .
+
+RUN npm install
+RUN npm run build
 
 EXPOSE 3000
 
