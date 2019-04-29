@@ -11,7 +11,7 @@
     "node": ">=10.2.0"
   },
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --mode=production",
     "build:client": "webpack --config=client.webpack.config.ts",
     "start": "webpack-dev-server --config=client.webpack.config.ts",
     "clean": "rimraf dist",
