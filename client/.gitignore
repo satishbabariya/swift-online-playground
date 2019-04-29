@@ -7,5 +7,4 @@ npm-debug.log
 yarn-error.log
 .tscache
 .tsconfig*.json
-!webpack.conf.js
 .idea/
