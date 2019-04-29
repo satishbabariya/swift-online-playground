@@ -1,6 +1,6 @@
 import { Widget } from '@phosphor/widgets';
 import { SplitPanel } from '@phosphor/widgets';
-import { Editor } from "./widgets/editor";
+import { Editor } from './widgets/editor';
 import './styles/index.css';
 
 function main(): void {

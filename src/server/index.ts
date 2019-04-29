@@ -7,12 +7,16 @@ import * as rpc from "vscode-ws-jsonrpc";
 import { launch } from "./swift-server-launcher";
 import * as ws from "ws";
 
+// const path = require('path');
+
 // create the express application
 const app = express();
 const port: number = Number(process.env.PORT) || 3000;
 
 // start the server
-const server = app.listen(port);
+const server = app.listen(port, () => {
+  console.log("server is hosted at http://localhost:" + port);
+});
 
 // create the web socket
 const wss = new ws.Server({
@@ -50,3 +54,4 @@ server.on('upgrade', (request: http.IncomingMessage, socket: net.Socket, head: B
     }
   }
 );
+
