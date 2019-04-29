@@ -1,6 +1,7 @@
 import { Widget } from '@phosphor/widgets';
 import { SplitPanel } from '@phosphor/widgets';
 import { Editor } from './widgets/editor';
+import { Log } from './widgets/log';
 import './styles/index.css';
 
 function main(): void {
@@ -11,10 +12,10 @@ function main(): void {
   main.id = 'main';
 
   let editor: Editor = new Editor();
-  let editor2: Editor = new Editor();
+  let log: Log = new Log();
 
   main.addWidget(editor);
-  main.addWidget(editor2);
+  main.addWidget(log);
 
   window.onresize = () => {
     main.update();
