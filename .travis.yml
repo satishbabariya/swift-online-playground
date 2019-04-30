@@ -1,0 +1,16 @@
+services:
+  - docker
+
+git:
+  depth: 1
+
+branches:
+  only:
+  - master
+
+language: generic
+
+script:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker build -t $DOCKER_USERNAME/playground .
+  - docker push $DOCKER_USERNAME/playground
