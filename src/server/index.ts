@@ -10,7 +10,7 @@ import * as ws from 'ws';
 
 // create the express application
 const app = express();
-const port: number = Number(process.env.PORT) || 3000;
+const port: number = Number(process.env.PORT) || 8080;
 
 // start the server
 const server = app.listen(port, () => {
