@@ -50,7 +50,7 @@ ENV PATH=/usr/bin/sourcekit-lsp:$PATH
 
 COPY --from=builder /server/dist .
 
-RUN ls
+EXPOSE 8080
 
 ENTRYPOINT node server/server.js
 
