@@ -52,5 +52,5 @@ COPY --from=builder /server/dist .
 
 EXPOSE 8080
 
-ENTRYPOINT node server.js
+ENTRYPOINT node index.js
 
