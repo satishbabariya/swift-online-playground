@@ -6,11 +6,16 @@ import * as rpc from 'vscode-ws-jsonrpc';
 import { launch } from './swift-server-launcher';
 import * as ws from 'ws';
 
-// const path = require('path');
-
 // create the express application
 const app = express();
 const port: number = Number(process.env.PORT) || 8080;
+
+
+app.get('/', function(req, res) {
+  res.sendFile('index.html', { root: 'client' });
+});
+
+app.use(express.static('client'));
 
 // start the server
 const server = app.listen(port, () => {

@@ -56,8 +56,8 @@ const serverConfig: webpack.Configuration = {
   },
   target: "node",
   output: {
-    path: path.resolve(__dirname, 'dist/server'),
-    // publicPath: '/dist/public',
+    path: path.resolve(__dirname, 'dist'),
+    // publicPath: '/client',
     filename: '[name].js',
     chunkFilename: '[id].[hash].chunk.js',
     libraryTarget: "commonjs2",
