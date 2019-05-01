@@ -39,7 +39,7 @@ export class Editor extends Widget {
 
 
     // create the web socket
-    const url = this.createUrl('/sampleServer')
+    const url = this.createUrl('/lsp')
     const webSocket = this.createWebSocket(url);
     const services = createMonacoServices(this.editor);
     // listen when the web socket is opened

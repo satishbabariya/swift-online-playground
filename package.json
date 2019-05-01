@@ -13,7 +13,10 @@
   "scripts": {
     "start": "webpack-dev-server",
     "clean": "rimraf dist",
-    "build": "tsc --p tsconfig-server.json; webpack",
+    "build": "yarn build:server && yarn build:client",
+    "build:client": "webpack",
+    "build:tsc": "tsc --p tsconfig-server.json",
+    "build:server": "webpack --config=server.webpack.config.js",
     "watch": "tsc --p tsconfig-server.json --watch & webpack --watch",
     "watch:client": "webpack --watch",
     "watch:server": "tsc --p tsconfig-server.json --watch",
@@ -26,7 +29,7 @@
     "monaco-languageclient": "^0.6.3",
     "normalize-url": "^4.3.0",
     "reconnecting-websocket": "^3.2.2",
-    "vscode-languageserver": "^5.2.1",
+    "vscode-languageserver": "4.0.0",
     "vscode-ws-jsonrpc": "^0.0.2-2",
     "ws": "^7.0.0"
   },
