@@ -1,3 +1,6 @@
+dist
+lib
+
 # Generated files
 bundle.js
 index.js
