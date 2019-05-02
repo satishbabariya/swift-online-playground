@@ -6,7 +6,7 @@ git:
 
 branches:
   only:
-  - dev
+    - master
 
 language: generic
 

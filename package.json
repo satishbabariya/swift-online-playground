@@ -11,42 +11,37 @@
     "node": ">=10.2.0"
   },
   "scripts": {
-    "start": "webpack-dev-server",
-    "clean": "rimraf dist",
-    "build": "yarn build:server && yarn build:client",
-    "build:client": "webpack",
-    "build:tsc": "tsc --p tsconfig-server.json",
-    "build:server": "webpack --config=server.webpack.config.js",
-    "watch": "tsc --p tsconfig-server.json --watch & webpack --watch",
-    "watch:client": "webpack --watch",
-    "watch:server": "tsc --p tsconfig-server.json --watch",
-    "prebuild": "yarn clean"
+    "webpack": "webpack",
+    "webpack-dev-server": "webpack-dev-server --env.mode development --open",
+    "dev": "yarn run webpack-dev-server",
+    "start": "yarn run dev",
+    "build:dev": "yarn run webpack -- --env.mode development",
+    "build": "yarn run webpack -- --env.mode production"
   },
   "dependencies": {
     "@phosphor/widgets": "^1.6.0",
-    "express": "^4.16.4",
-    "monaco-editor": "^0.15.6",
-    "monaco-languageclient": "^0.6.3",
-    "normalize-url": "^4.3.0",
+    "monaco-editor-core": "^0.14.6",
+    "monaco-languageclient": "0.9.0",
+    "normalize-url": "^2.0.1",
     "reconnecting-websocket": "^3.2.2",
-    "vscode-languageserver": "4.0.0",
-    "vscode-ws-jsonrpc": "^0.0.2-2",
-    "ws": "^7.0.0"
+    "vscode-languageserver": "^4.0.0",
+    "vscode-ws-jsonrpc": "^0.0.2-1"
   },
   "devDependencies": {
-    "@types/express": "^4.16.1",
-    "@types/node": "^11.13.8",
-    "@types/ws": "^6.0.1",
-    "awesome-typescript-loader": "^5.2.1",
-    "copy-webpack-plugin": "^5.0.0",
-    "css-loader": "^2.1.0",
+    "@types/node": "11.9.4",
+    "clean-webpack-plugin": "1.0.1",
+    "compression-webpack-plugin": "2.0.0",
+    "css-loader": "^2.1.1",
+    "file-loader": "3.0.1",
     "html-webpack-plugin": "^3.2.0",
-    "monaco-editor-webpack-plugin": "^1.7.0",
-    "rimraf": "^2.6.3",
+    "source-map-loader": "0.2.4",
     "style-loader": "^0.23.1",
+    "ts-loader": "5.3.3",
     "typescript": "^3.3.3333",
-    "webpack": "^4.29.6",
-    "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^3.2.1"
+    "uglifyjs-webpack-plugin": "2.1.1",
+    "webpack": "4.29.5",
+    "webpack-cli": "3.2.3",
+    "webpack-dev-server": "3.2.0",
+    "webpack-merge": "4.2.1"
   }
 }

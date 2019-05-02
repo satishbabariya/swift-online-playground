@@ -2,25 +2,26 @@ import { Widget } from '@phosphor/widgets';
 // import * as monaco from 'monaco-editor';
 import '../styles/editor.css';
 
-import { listen, MessageConnection } from "vscode-ws-jsonrpc";
+import { listen, MessageConnection } from 'vscode-ws-jsonrpc';
 import {
-  BaseLanguageClient,
+  MonacoLanguageClient,
   CloseAction,
   ErrorAction,
-  createMonacoServices,
-  createConnection
-} from "monaco-languageclient";
+  MonacoServices,
+  createConnection,
+} from 'monaco-languageclient';
+import normalizeUrl = require('normalize-url');
+const ReconnectingWebSocket = require('reconnecting-websocket');
 
-import normalizeUrl = require("normalize-url");
+require('monaco-editor-core');
 
-const ReconnectingWebSocket = require("reconnecting-websocket");
-
-// import * as monaco from 'monaco-editor';
-require("monaco-editor/esm/vs/editor/editor.main");
+(self as any).MonacoEnvironment = {
+  getWorkerUrl: () => './editor.worker.bundle.js',
+};
 
 export class Editor extends Widget {
-  editor:  monaco.editor.IStandaloneCodeEditor;
-  langauge = "swift";
+  editor: monaco.editor.IStandaloneCodeEditor;
+  langauge = 'swift';
 
   constructor() {
     super();
@@ -29,7 +30,7 @@ export class Editor extends Widget {
     monaco.languages.register({
       id: 'swift',
       extensions: ['.swift'],
-      aliases: ['Swift','swift'],
+      aliases: ['Swift', 'swift'],
       mimetypes: ['text/plain'],
     });
 
@@ -37,20 +38,21 @@ export class Editor extends Widget {
       language: this.langauge,
     });
 
+    // install Monaco language client services
+    MonacoServices.install(this.editor);
 
     // create the web socket
-    const url = this.createUrl('/lsp')
+    const url = this.createUrl('/lsp');
     const webSocket = this.createWebSocket(url);
-    const services = createMonacoServices(this.editor);
     // listen when the web socket is opened
     listen({
-        webSocket,
-        onConnection: connection => {
-            // create and start the language client
-            const languageClient = this.createLanguageClient(connection, services);
-            const disposable = languageClient.start();
-            connection.onClose(() => disposable.dispose());
-        }
+      webSocket,
+      onConnection: connection => {
+        // create and start the language client
+        const languageClient = this.createLanguageClient(connection);
+        const disposable = languageClient.start();
+        connection.onClose(() => disposable.dispose());
+      },
     });
   }
 
@@ -82,49 +84,45 @@ export class Editor extends Widget {
     super.dispose();
   }
 
-
-  createLanguageClient(
-    connection: MessageConnection,
-    services: BaseLanguageClient.IServices
-  ): BaseLanguageClient {
-    return new BaseLanguageClient({
-      name: `${this.langauge.toUpperCase()} Client`,
+  createLanguageClient(connection: MessageConnection): MonacoLanguageClient {
+    return new MonacoLanguageClient({
+      id: 'sourcekit-lsp',
+      name: 'SourceKit Language Server',
       clientOptions: {
         // use a language id as a document selector
-        documentSelector: [this.langauge],
+        documentSelector: ['swift'],
+
+        synchronize: undefined,
+
         // disable the default error handler
         errorHandler: {
           error: () => ErrorAction.Continue,
-          closed: () => CloseAction.DoNotRestart
-        }
+          closed: () => CloseAction.DoNotRestart,
+        },
       },
-      services,
       // create a language client connection from the JSON RPC connection on demand
       connectionProvider: {
         get: (errorHandler, closeHandler) => {
-          return Promise.resolve(
-            createConnection(connection, errorHandler, closeHandler)
-          );
-        }
-      }
+          return Promise.resolve(createConnection(connection, errorHandler, closeHandler));
+        },
+      },
     });
   }
 
-createUrl(path: string): string {
+  createUrl(path: string): string {
     const protocol = location.protocol === 'https:' ? 'wss' : 'ws';
     return normalizeUrl(`${protocol}://${location.host}${location.pathname}${path}`);
-}
+  }
 
-createWebSocket(url: string): WebSocket {
+  createWebSocket(url: string): WebSocket {
     const socketOptions = {
-        maxReconnectionDelay: 10000,
-        minReconnectionDelay: 1000,
-        reconnectionDelayGrowFactor: 1.3,
-        connectionTimeout: 10000,
-        maxRetries: Infinity,
-        debug: false
+      maxReconnectionDelay: 10000,
+      minReconnectionDelay: 1000,
+      reconnectionDelayGrowFactor: 1.3,
+      connectionTimeout: 10000,
+      maxRetries: Infinity,
+      debug: false,
     };
     return new ReconnectingWebSocket(url, undefined, socketOptions);
-}
-
+  }
 }

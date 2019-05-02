@@ -1,0 +1,24 @@
+@import '~@phosphor/dragdrop/style/index.css';
+@import '~@phosphor/widgets/style/index.css';
+
+body {
+  background: #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#menuBar {
+  flex: 0 0 auto;
+}
+
+#main {
+  flex: 1 1 auto;
+}

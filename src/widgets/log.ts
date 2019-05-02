@@ -2,7 +2,6 @@ import { Widget } from '@phosphor/widgets';
 import '../styles/log.css';
 
 export class Log extends Widget {
-
   constructor() {
     super();
     this.addClass('log');
@@ -12,6 +11,4 @@ export class Log extends Widget {
   addWidget(widget: Widget) {
     this.node.appendChild(widget.node);
   }
-
-  
 }
