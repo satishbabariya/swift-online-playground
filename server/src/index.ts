@@ -11,11 +11,11 @@ const app = express();
 const port: number = Number(process.env.PORT) || 8080;
 
 // app.use(express.static(__dirname))
-// app.get('/', function(req, res) {
-//   res.sendFile('index.html', { root: 'client' });
-// });
+app.get('/', function(req, res) {
+  res.sendFile('index.html', { root: 'public' });
+});
 
-// app.use(express.static('client'));
+app.use(express.static('public'));
 
 // start the server
 const server = app.listen(port, () => {
