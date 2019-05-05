@@ -110,12 +110,8 @@ export class Editor extends Widget {
   }
 
   createUrl(path: string): string {
-    if (location.host == 'swift-playground.github.io'){
-      return normalizeUrl(`ws://34.66.206.92${path}`);
-    }else {
-      const protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-      return normalizeUrl(`${protocol}://${location.host}${location.pathname}${path}`);
-    }    
+    const protocol = location.protocol === 'https:' ? 'wss' : 'ws';
+    return normalizeUrl(`${protocol}://${location.host}${location.pathname}${path}`);   
   }
 
   createWebSocket(url: string): WebSocket {
