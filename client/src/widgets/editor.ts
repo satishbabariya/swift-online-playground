@@ -110,6 +110,7 @@ export class Editor extends Widget {
   }
 
   createUrl(path: string): string {
+    console.log(`${process.env.SERVER_URL}`)
     if (process.env.SERVER_URL){
       return normalizeUrl(`${process.env.SERVER_URL}${path}`);
     }else {
