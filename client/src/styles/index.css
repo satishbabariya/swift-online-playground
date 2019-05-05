@@ -1,5 +1,7 @@
 @import '~@phosphor/dragdrop/style/index.css';
 @import '~@phosphor/widgets/style/index.css';
+@import './tabbar.css';
+@import './menubar.css';
 
 body {
   background: #e5e5e5;
@@ -22,3 +24,8 @@ body {
 #main {
   flex: 1 1 auto;
 }
+
+#dock {
+  padding: 4px;
+}
+

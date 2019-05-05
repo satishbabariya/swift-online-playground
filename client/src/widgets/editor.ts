@@ -11,7 +11,11 @@ import {
   createConnection,
 } from 'monaco-languageclient';
 import normalizeUrl = require('normalize-url');
+
+import { PlaygroundServices } from "../services/playground-services";
+
 const ReconnectingWebSocket = require('reconnecting-websocket');
+
 
 require('monaco-editor-core');
 
@@ -28,7 +32,7 @@ export class Editor extends Widget {
     this.addClass('editor');
 
     monaco.languages.register({
-      id: 'swift',
+      id: this.langauge,
       extensions: ['.swift'],
       aliases: ['Swift', 'swift'],
       mimetypes: ['text/plain'],
@@ -36,14 +40,18 @@ export class Editor extends Widget {
 
     this.editor = monaco.editor.create(this.node, {
       language: this.langauge,
+      scrollBeyondLastLine : false,
+      wordWrap: 'on',
     });
 
     // install Monaco language client services
-    MonacoServices.install(this.editor);
+    // MonacoServices.install(this.editor);
+    PlaygroundServices.install(this.editor);
 
     // create the web socket
     const url = this.createUrl('/lsp');
     const webSocket = this.createWebSocket(url);
+
     // listen when the web socket is opened
     listen({
       webSocket,
@@ -84,13 +92,17 @@ export class Editor extends Widget {
     super.dispose();
   }
 
+  public getValue(): string {
+    return this.editor.getValue()
+  }
+
   createLanguageClient(connection: MessageConnection): MonacoLanguageClient {
     return new MonacoLanguageClient({
       id: 'sourcekit-lsp',
       name: 'SourceKit Language Server',
       clientOptions: {
         // use a language id as a document selector
-        documentSelector: ['swift'],
+        documentSelector: [this.langauge],
 
         synchronize: undefined,
 
@@ -111,7 +123,7 @@ export class Editor extends Widget {
 
   createUrl(path: string): string {
     const protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-    return normalizeUrl(`${protocol}://${location.host}${location.pathname}${path}`);   
+    return normalizeUrl(`${protocol}://${location.host}${location.pathname}${path}`);  
   }
 
   createWebSocket(url: string): WebSocket {
