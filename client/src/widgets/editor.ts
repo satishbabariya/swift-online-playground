@@ -110,8 +110,12 @@ export class Editor extends Widget {
   }
 
   createUrl(path: string): string {
-    const protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-    return normalizeUrl(`${protocol}://${location.host}${location.pathname}${path}`);
+    if (process.env.SERVER_URL){
+      return normalizeUrl(`${process.env.SERVER_URL}${path}`);
+    }else {
+      const protocol = location.protocol === 'https:' ? 'wss' : 'ws';
+      return normalizeUrl(`${protocol}://${location.host}${location.pathname}${path}`);
+    }    
   }
 
   createWebSocket(url: string): WebSocket {
