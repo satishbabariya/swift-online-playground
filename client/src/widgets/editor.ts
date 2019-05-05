@@ -110,9 +110,8 @@ export class Editor extends Widget {
   }
 
   createUrl(path: string): string {
-    console.log(`${process.env.SERVER_URL}`)
-    if (process.env.SERVER_URL){
-      return normalizeUrl(`${process.env.SERVER_URL}${path}`);
+    if (location.host == 'swift-playground.github.io'){
+      return normalizeUrl(`ws://34.66.206.92${path}`);
     }else {
       const protocol = location.protocol === 'https:' ? 'wss' : 'ws';
       return normalizeUrl(`${protocol}://${location.host}${location.pathname}${path}`);
