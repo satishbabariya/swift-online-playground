@@ -6,10 +6,6 @@
   "repository": "https://github.com/satishbabariya/swift-online-playground.git",
   "author": "Satish Babariya",
   "license": "Apache-2.0",
-  "engines": {
-    "yarn": "1.0.x || >=1.2.1",
-    "node": ">=8.16.0"
-  },
   "scripts": {
     "webpack": "webpack",
     "webpack-dev-server": "webpack-dev-server --env.mode development --open",
