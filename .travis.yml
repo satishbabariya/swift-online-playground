@@ -12,17 +12,15 @@ language: generic
 
 script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t $DOCKER_USERNAME/playground .
-  - docker push $DOCKER_USERNAME/playground
+  # - docker build -t $DOCKER_USERNAME/playground .
+  # - docker push $DOCKER_USERNAME/playground
 
 before_deploy:
-  - cd client; yarn; yarn build
+  - cd client; yarn; yarn run webpack --env.mode production --env.SERVER_URL="$SERVER_URL"
 deploy:
   provider: pages
   skip-cleanup: true
-  github-token: $GITHUBTOKEN 
-  keep-history: true
-  allow_empty_commit: true
+  github-token: $GITHUBTOKEN
   target-branch: master
   local_dir: client/dist
   repo: swift-playground/swift-playground.github.io
