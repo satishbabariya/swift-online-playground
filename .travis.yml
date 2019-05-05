@@ -22,6 +22,7 @@ deploy:
   skip-cleanup: true
   github-token: $GITHUBTOKEN 
   keep-history: true
+  allow_empty_commit: true
   target-branch: master
   local_dir: client/dist
   repo: swift-playground/swift-playground.github.io
