@@ -12,8 +12,8 @@ language: generic
 
 script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  # - docker build -t $DOCKER_USERNAME/playground .
-  # - docker push $DOCKER_USERNAME/playground
+  - docker build -t $DOCKER_USERNAME/playground .
+  - docker push $DOCKER_USERNAME/playground
 
 before_deploy:
   - cd client; yarn; yarn run webpack --env.mode production --env.SERVER_URL="$SERVER_URL"

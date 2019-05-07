@@ -24,7 +24,7 @@ module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) => {
             enforce: 'pre',
           },
           {
-            test: /\.tsx?$/,
+            test: /\.ts?$/,
             use: 'ts-loader',
             exclude: /node_modules/,
           },

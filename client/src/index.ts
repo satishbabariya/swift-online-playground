@@ -9,21 +9,20 @@ import './styles/index.css';
 const commands = new CommandRegistry();
 
 function main(): void {
-
   commands.addCommand('show-output', {
     label: 'Show',
     mnemonic: 0,
-    execute: () => {   
+    execute: () => {
       dock.show();
-    }
+    },
   });
 
   commands.addCommand('clean-output', {
     label: 'Clean',
     mnemonic: 0,
-    execute: () => { 
-      outputLogs.clear()
-    }
+    execute: () => {
+      outputLogs.clear();
+    },
   });
 
   commands.addCommand('close-output', {
@@ -31,17 +30,14 @@ function main(): void {
     mnemonic: 0,
     execute: () => {
       dock.hide();
-    }
+    },
   });
 
   commands.addCommand('build-and-run', {
     label: 'Run Task',
     mnemonic: 0,
-    execute: () => {
-      
-    }
+    execute: () => {},
   });
-
 
   let outputMenu = new Menu({ commands });
   outputMenu.title.label = 'Output';
@@ -56,12 +52,10 @@ function main(): void {
   taskMenu.title.mnemonic = 0;
   taskMenu.addItem({ command: 'build-and-run' });
 
-
   let menuBar = new MenuBar();
   menuBar.addMenu(outputMenu);
   menuBar.addMenu(taskMenu);
   menuBar.id = 'menuBar';
-
 
   let main = new SplitPanel({
     orientation: 'vertical',
@@ -72,16 +66,16 @@ function main(): void {
   let editor: Editor = new Editor();
   main.addWidget(editor);
 
-  let dock : DockPanel = new DockPanel();
+  let dock: DockPanel = new DockPanel();
   dock.id = 'dock';
 
-  let debugLogs: DebugLogs = new DebugLogs('Debug');    
+  let debugLogs: DebugLogs = new DebugLogs('Debug');
   dock.addWidget(debugLogs);
 
   let outputLogs: OutputLogs = new OutputLogs('Output');
   dock.addWidget(outputLogs);
-  
-  dock.activateWidget(outputLogs)
+
+  dock.activateWidget(outputLogs);
   main.addWidget(dock);
 
   window.onresize = () => {

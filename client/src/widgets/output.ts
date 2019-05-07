@@ -3,8 +3,6 @@ import '../styles/log.css';
 
 require('monaco-editor-core');
 
-
-
 export class OutputLogs extends Widget {
   editor: monaco.editor.IStandaloneCodeEditor;
   langauge = 'log';
@@ -15,26 +13,23 @@ export class OutputLogs extends Widget {
     this.title.label = title;
     // this.title.closable = true;
 
-
     this.editor = monaco.editor.create(this.node, {
       language: this.langauge,
       // scrollBeyondLastLine : false,
       readOnly: true,
       lineNumbers: 'off',
       minimap: {
-        enabled : false
+        enabled: false,
       },
       // wordWrap: 'on',
       roundedSelection: false,
       theme: 'logsTheme',
       scrollbar: {
-        useShadows : false,
+        useShadows: false,
       },
       // model : null
       // value: this.getCode()
     });
-    
-
   }
 
   addWidget(widget: Widget) {
@@ -65,8 +60,7 @@ export class OutputLogs extends Widget {
     super.dispose();
   }
 
-  public clear(){
+  public clear() {
     this.editor.setValue(null);
   }
-
 }

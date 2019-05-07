@@ -12,10 +12,9 @@ import {
 } from 'monaco-languageclient';
 import normalizeUrl = require('normalize-url');
 
-import { PlaygroundServices } from "../services/playground-services";
+import { PlaygroundServices } from '../services/playground-services';
 
 const ReconnectingWebSocket = require('reconnecting-websocket');
-
 
 require('monaco-editor-core');
 
@@ -40,7 +39,7 @@ export class Editor extends Widget {
 
     this.editor = monaco.editor.create(this.node, {
       language: this.langauge,
-      scrollBeyondLastLine : false,
+      scrollBeyondLastLine: false,
       wordWrap: 'on',
     });
 
@@ -93,7 +92,7 @@ export class Editor extends Widget {
   }
 
   public getValue(): string {
-    return this.editor.getValue()
+    return this.editor.getValue();
   }
 
   createLanguageClient(connection: MessageConnection): MonacoLanguageClient {
@@ -123,7 +122,7 @@ export class Editor extends Widget {
 
   createUrl(path: string): string {
     const protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-    return normalizeUrl(`${protocol}://${location.host}${location.pathname}${path}`);  
+    return normalizeUrl(`${protocol}://${location.host}${location.pathname}${path}`);
   }
 
   createWebSocket(url: string): WebSocket {
