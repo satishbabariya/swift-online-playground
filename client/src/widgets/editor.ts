@@ -22,6 +22,8 @@ require('monaco-editor-core');
   getWorkerUrl: () => './editor.worker.bundle.js',
 };
 
+import { outputChannel } from '../services/channels';
+
 export class Editor extends Widget {
   editor: monaco.editor.IStandaloneCodeEditor;
   langauge = 'swift';
@@ -48,8 +50,14 @@ export class Editor extends Widget {
     PlaygroundServices.install(this.editor);
 
     // create the web socket
-    const url = this.createUrl('/lsp');
+    const url = this.createUrl('/languageserver');
     const webSocket = this.createWebSocket(url);
+
+    webSocket.onerror = function(event) {
+      if (event.timeStamp) {
+        outputChannel.push('[Error] failed to connect WebSocket');
+      }
+    };
 
     // listen when the web socket is opened
     listen({
@@ -122,7 +130,8 @@ export class Editor extends Widget {
 
   createUrl(path: string): string {
     const protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-    return normalizeUrl(`${protocol}://${location.host}${location.pathname}${path}`);
+    // return normalizeUrl(`${protocol}://${location.host}${location.pathname}${path}`);
+    return 'wss://playground-swift-online-playground.7e14.starter-us-west-2.openshiftapps.com/lsp';
   }
 
   createWebSocket(url: string): WebSocket {

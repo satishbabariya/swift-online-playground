@@ -2,9 +2,9 @@ import { Widget } from '@phosphor/widgets';
 import { SplitPanel, DockPanel, Menu, MenuBar } from '@phosphor/widgets';
 import { CommandRegistry } from '@phosphor/commands';
 import { Editor } from './widgets/editor';
-import { DebugLogs } from './widgets/debug';
-import { OutputLogs } from './widgets/output';
+import { Logs } from './widgets/output';
 import './styles/index.css';
+import * as axios from 'axios';
 
 const commands = new CommandRegistry();
 
@@ -21,7 +21,7 @@ function main(): void {
     label: 'Clean',
     mnemonic: 0,
     execute: () => {
-      outputLogs.clear();
+      // outputLogs.clear();
     },
   });
 
@@ -34,10 +34,27 @@ function main(): void {
   });
 
   commands.addCommand('build-and-run', {
-    label: 'Run Task',
+    label: 'Build and Run',
     mnemonic: 0,
-    execute: () => {},
+    execute: () => {
+      dock.activateWidget(logs);
+      axios.default.post('/run', {
+        value: this.editor.getValue(),
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    },
   });
+
+  // commands.addKeyBinding({
+  //   command: 'build-and-run',
+  //   keys: ['Shift R'] ,
+  //   selector: ''
+  // })
 
   let outputMenu = new Menu({ commands });
   outputMenu.title.label = 'Output';
@@ -69,13 +86,10 @@ function main(): void {
   let dock: DockPanel = new DockPanel();
   dock.id = 'dock';
 
-  let debugLogs: DebugLogs = new DebugLogs('Debug');
-  dock.addWidget(debugLogs);
+  let logs: Logs = new Logs('Output');
+  dock.addWidget(logs);
 
-  let outputLogs: OutputLogs = new OutputLogs('Output');
-  dock.addWidget(outputLogs);
-
-  dock.activateWidget(outputLogs);
+  // dock.activateWidget(outputLogs);
   main.addWidget(dock);
 
   window.onresize = () => {

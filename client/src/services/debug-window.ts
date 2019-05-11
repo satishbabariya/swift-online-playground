@@ -1,7 +1,6 @@
 import { MessageActionItem, MessageType, Window, OutputChannel } from 'monaco-languageclient';
-import { BehaviorSubject } from 'rxjs';
 
-export const debugChannel: BehaviorSubject<string> = new BehaviorSubject(null);
+import { outputChannel } from '../services/channels';
 
 export class DebugWindow implements Window {
   protected readonly channels = new Map<string, OutputChannel>();
@@ -11,16 +10,16 @@ export class DebugWindow implements Window {
     ...actions: T[]
   ): Thenable<T | undefined> {
     if (type === MessageType.Error) {
-      debugChannel.next(`[Error] ${message}`);
+      outputChannel.push(`[Error] ${message}`);
     }
     if (type === MessageType.Warning) {
-      debugChannel.next(`[Warning] ${message}`);
+      outputChannel.push(`[Warning] ${message}`);
     }
     if (type === MessageType.Info) {
-      debugChannel.next(`[Info] ${message}`);
+      outputChannel.push(`[Info] ${message}`);
     }
     if (type === MessageType.Log) {
-      debugChannel.next(`[Log] ${message}`);
+      outputChannel.push(`[Log] ${message}`);
     }
     return Promise.resolve(undefined);
   }
@@ -32,11 +31,9 @@ export class DebugWindow implements Window {
     const channel: OutputChannel = {
       append(value: string): void {
         console.log(value);
-        debugChannel.next(value)
       },
       appendLine(line: string): void {
         console.log(line);
-        debugChannel.next(line)
       },
       show(): void {
         console.log('show');

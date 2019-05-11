@@ -24,12 +24,16 @@ export namespace PlaygroundServices {
     editor: monaco.editor.IStandaloneCodeEditor,
     options: Options = {}
   ): PlaygroundServices {
-    const m2p = new MonacoToProtocolConverter();
-    const p2m = new ProtocolToMonacoConverter();
+    const monacoToProtocolConverter = new MonacoToProtocolConverter();
+    const protocolToMonacoConverter = new ProtocolToMonacoConverter();
     return {
       commands: new MonacoCommands(editor),
-      languages: new MonacoLanguages(p2m, m2p),
-      workspace: new MonacoWorkspace(p2m, m2p, options.rootUri),
+      languages: new MonacoLanguages(protocolToMonacoConverter, monacoToProtocolConverter),
+      workspace: new MonacoWorkspace(
+        protocolToMonacoConverter,
+        monacoToProtocolConverter,
+        options.rootUri
+      ),
       window: new DebugWindow(),
     };
   }

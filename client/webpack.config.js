@@ -29,6 +29,15 @@ module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) => {
             exclude: /node_modules/,
           },
           {
+            test: /\.(tsx)?$/,
+            use: {
+              loader: 'babel-loader',
+              options: {
+                presets: ['@babel/preset-env', '@babel/preset-typescript'],
+              },
+            },
+          },
+          {
             test: /\.css$/,
             use: ['style-loader', 'css-loader'],
           },
@@ -46,7 +55,7 @@ module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) => {
         ],
       },
       resolve: {
-        extensions: ['.tsx', '.ts', '.js'],
+        extensions: ['.tsx', '.ts', '.js', 'jsx'],
         alias: {
           vscode: require.resolve('monaco-languageclient/lib/vscode-compatibility'),
         },

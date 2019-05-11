@@ -7,4 +7,11 @@
   border: 1px solid #dddddd;
   border-top: none;
   background-color: #ffffff;
+  /* height: 100%; */
+  /* padding: 16px 24px; */
+  /* background: #000; */
+  /* color: #fff; */
+  /* margin: 0px; */
+  line-height: 20px;
+  overflow: scroll;
 }

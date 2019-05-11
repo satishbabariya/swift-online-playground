@@ -14,7 +14,11 @@
     "build": "tsc"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.15.2",
+    "shelljs": "^0.8.3",
+    "tmp": "^0.1.0",
     "vscode-languageserver": "^4.0.0",
     "vscode-ws-jsonrpc": "^0.0.2-1",
     "ws": "^5.0.0"
