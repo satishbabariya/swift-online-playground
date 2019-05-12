@@ -1,6 +1,8 @@
 # swift-online-playground
 Swift Online Playground with IntelliSense 
 
+![Screenshot](https://raw.githubusercontent.com/swift-playground/assets/master/Screenshot%20(27).png)
+
 ## Getting started
 
 ##### Pull and Run the Docker Image From Docker Hub:
