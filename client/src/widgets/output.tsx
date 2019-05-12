@@ -33,11 +33,7 @@ export class Logs extends Widget {
   onCloseRequest() {
     this.dispose();
   }
-
-  public onToggleTheme(theme: string) {
-    monaco.editor.setTheme(theme);
-  }
-
+  
   public dispose() {
     if (this.isDisposed) {
       return;

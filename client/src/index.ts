@@ -3,6 +3,7 @@ import { SplitPanel, DockPanel, Menu, MenuBar } from '@phosphor/widgets';
 import { CommandRegistry } from '@phosphor/commands';
 import { Editor } from './widgets/editor';
 import { Logs } from './widgets/output';
+import { Loader } from './widgets/loader';
 import './styles/index.css';
 import * as axios from 'axios';
 
@@ -38,9 +39,7 @@ function main(): void {
     mnemonic: 0,
     execute: () => {
       dock.activateWidget(logs);
-      axios.default.post('/run', {
-        value: this.editor.getValue(),
-      })
+      axios.default.post('/run',  this.editor.getValue())
       .then(function (response) {
         console.log(response);
       })

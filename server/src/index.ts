@@ -36,7 +36,7 @@ app.post('/run', function(req, res) {
   ) {
     if (err) throw err;
 
-    fs.writeFile(path, req.body.value, err => {
+    fs.writeFile(path, req.body, err => {
       if (err) throw err;
     });
 

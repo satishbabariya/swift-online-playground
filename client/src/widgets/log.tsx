@@ -11,10 +11,10 @@ export class Log extends React.Component {
 
   render() {
     return (
-      <div>
+      <pre>
         {this.props.output}
         <Observer render={() => <Ansi linkify>{this.props.output.join('\n')}</Ansi>} />
-      </div>
+      </pre>
     );
   }
 }

@@ -130,8 +130,8 @@ export class Editor extends Widget {
 
   createUrl(path: string): string {
     const protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-    // return normalizeUrl(`${protocol}://${location.host}${location.pathname}${path}`);
-    return 'wss://playground-swift-online-playground.7e14.starter-us-west-2.openshiftapps.com/lsp';
+    return normalizeUrl(`${protocol}://${location.host}${location.pathname}${path}`);
+    // return 'wss://playground-swift-online-playground.7e14.starter-us-west-2.openshiftapps.com/lsp';
   }
 
   createWebSocket(url: string): WebSocket {
