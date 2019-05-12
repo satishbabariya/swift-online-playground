@@ -44,6 +44,9 @@ function main(): void {
     label: 'Build and Run',
     mnemonic: 0,
     execute: () => {
+      if (dock.isHidden) {
+        dock.show();
+      }
       dock.activateWidget(outputLogs);
       axios.default
         .post('/run', editor.getValue(), {
