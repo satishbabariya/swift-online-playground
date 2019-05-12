@@ -53,7 +53,7 @@ function main(): void {
       .then(function (response) {
         if (response.data.stderr) {
           outputChannel.push(colors.red('[STDERR] ') + response.data.stderr)
-        }else if (response.data.stderr) {
+        }else if (response.data.stdout) {
           outputChannel.push(colors.green('[STDOUT] ') + response.data.stdout)
         }
       })
