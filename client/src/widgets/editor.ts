@@ -22,7 +22,9 @@ require('monaco-editor-core');
   getWorkerUrl: () => './editor.worker.bundle.js',
 };
 
-import { outputChannel } from '../services/channels';
+import { debugChannel } from '../services/channels';
+
+import * as colors from 'ansi-colors';
 
 export class Editor extends Widget {
   editor: monaco.editor.IStandaloneCodeEditor;
@@ -55,7 +57,7 @@ export class Editor extends Widget {
 
     webSocket.onerror = function(event) {
       if (event.timeStamp) {
-        outputChannel.push('[Error] failed to connect WebSocket');
+        debugChannel.push(colors.red('[ERROR] ') + 'Failed to connect WebSocket');
       }
     };
 

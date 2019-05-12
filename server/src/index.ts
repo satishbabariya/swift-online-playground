@@ -4,6 +4,7 @@ import * as net from 'net';
 import * as fs from 'fs';
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
+import * as helmet from 'helmet';
 import * as cors from 'cors';
 import * as rpc from 'vscode-ws-jsonrpc';
 import { launch } from './swift-server-launcher';
@@ -16,11 +17,8 @@ const port: number = Number(process.env.PORT) || 8080;
 
 app.enable('trust proxy');
 app.use(cors());
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
-
-// parse application/json
-app.use(bodyParser.json());
+app.use(bodyParser.text());
+app.use(helmet())
 
 // app.use(express.static(__dirname))
 app.get('/', function(req, res) {
@@ -35,11 +33,9 @@ app.post('/run', function(req, res) {
     cleanupCallback
   ) {
     if (err) throw err;
-
     fs.writeFile(path, req.body, err => {
       if (err) throw err;
     });
-
     return shell.exec(`swift ${path}`, function(code, stdout, stderr) {
       fs.unlinkSync(path);
       res.send({

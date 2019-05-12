@@ -1,11 +1,17 @@
 import { Widget } from '@phosphor/widgets';
 import { SplitPanel, DockPanel, Menu, MenuBar } from '@phosphor/widgets';
 import { CommandRegistry } from '@phosphor/commands';
+
 import { Editor } from './widgets/editor';
 import { Logs } from './widgets/output';
 import { Loader } from './widgets/loader';
-import './styles/index.css';
+
 import * as axios from 'axios';
+import * as colors from 'ansi-colors';
+
+import './styles/index.css';
+
+import { outputChannel, debugChannel } from './services/channels';
 
 const commands = new CommandRegistry();
 
@@ -22,7 +28,7 @@ function main(): void {
     label: 'Clean',
     mnemonic: 0,
     execute: () => {
-      // outputLogs.clear();
+      outputChannel.clear();
     },
   });
 
@@ -38,13 +44,21 @@ function main(): void {
     label: 'Build and Run',
     mnemonic: 0,
     execute: () => {
-      dock.activateWidget(logs);
-      axios.default.post('/run',  this.editor.getValue())
+      dock.activateWidget(outputLogs);
+      axios.default.post('/run',  editor.getValue(), {
+        headers: {
+          'Content-Type': 'text/plain'
+        }
+      })
       .then(function (response) {
-        console.log(response);
+        if (response.data.stderr) {
+          outputChannel.push(colors.red('[STDERR] ') + response.data.stderr)
+        }else if (response.data.stderr) {
+          outputChannel.push(colors.green('[STDOUT] ') + response.data.stdout)
+        }
       })
       .catch(function (error) {
-        console.log(error);
+        outputChannel.push(colors.red('[ERROR] ') + error.message)
       });
     },
   });
@@ -85,10 +99,13 @@ function main(): void {
   let dock: DockPanel = new DockPanel();
   dock.id = 'dock';
 
-  let logs: Logs = new Logs('Output');
-  dock.addWidget(logs);
+  let debugLogs: Logs = new Logs('Debug', true, debugChannel);
+  dock.addWidget(debugLogs);
 
-  // dock.activateWidget(outputLogs);
+  let outputLogs: Logs = new Logs('Output', false, outputChannel);
+  dock.addWidget(outputLogs);
+
+  dock.activateWidget(outputLogs);
   main.addWidget(dock);
 
   window.onresize = () => {

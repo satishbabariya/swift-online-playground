@@ -5,14 +5,18 @@ import * as React from 'react';
 import { Log } from './log';
 import '../styles/log.css';
 
-import { outputChannel } from '../services/channels';
+import { observable, IObservableArray } from 'mobx';
 
 export class Logs extends Widget {
-  constructor(label: string) {
+
+  private channel: IObservableArray<String>;
+
+  constructor(label: string, isClosable: boolean ,channel: IObservableArray<String>) {
     super({ node: Logs.createNode() });
     this.addClass('log');
     this.title.label = label;
-    this.title.closable = true;
+    this.title.closable = isClosable;
+    this.channel = channel
   }
 
   static createNode(): HTMLElement {
@@ -26,8 +30,9 @@ export class Logs extends Widget {
   }
 
   protected onUpdateRequest(msg: Message): void {
-    console.log('render');
-    ReactDOM.render(<Log output={outputChannel} />, this.node as Element);
+    if (this.channel){
+      ReactDOM.render(<Log output={this.channel} />, this.node as Element);
+    }    
   }
 
   onCloseRequest() {
