@@ -40,8 +40,8 @@ app.post('/run', function(req, res) {
       fs.unlinkSync(path);
       res.send({
         code: code,
-        stdout: stdout,
-        stderr: stderr,
+        stdout: stdout.trim(),
+        stderr: stderr.trim(),
       });
     });
   });
