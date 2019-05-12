@@ -8,3 +8,7 @@
   border-top: none;
   background-color: #ffffff;
 }
+
+.--dark .p-Widget.editor {
+  background-color: #1e1e1e;
+}

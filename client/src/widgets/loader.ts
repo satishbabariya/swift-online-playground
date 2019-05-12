@@ -10,11 +10,10 @@ export class Loader extends Widget {
   addWidget(widget: Widget) {
     this.node.appendChild(widget.node);
   }
-   
+
   onCloseRequest() {
     this.dispose();
   }
-
 
   public dispose() {
     if (this.isDisposed) {

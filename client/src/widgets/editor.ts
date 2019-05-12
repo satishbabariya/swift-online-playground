@@ -26,7 +26,7 @@ import { debugChannel } from '../services/channels';
 
 import * as colors from 'ansi-colors';
 
-import { swiftLanguageConfiguration , swiftMonarchTokens } from '../services/swift-language-support'
+import { swiftLanguageConfiguration, swiftMonarchTokens } from '../services/swift-language-support';
 
 export class Editor extends Widget {
   editor: monaco.editor.IStandaloneCodeEditor;
@@ -62,7 +62,7 @@ export class Editor extends Widget {
 
     webSocket.onerror = function(event) {
       if (event.timeStamp) {
-        debugChannel.push(colors.red('[ERROR] ') + 'Failed to connect WebSocket');
+        debugChannel.push(colors.bold.red('[ERROR] ') + 'Failed to connect WebSocket');
       }
     };
 
@@ -94,7 +94,7 @@ export class Editor extends Widget {
     this.dispose();
   }
 
-  public onToggleTheme(theme: string) {
+  public setTheme(theme: string) {
     monaco.editor.setTheme(theme);
   }
 

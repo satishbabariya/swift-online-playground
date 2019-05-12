@@ -28,3 +28,46 @@ body {
 #dock {
   padding: 4px;
 }
+
+/* Dark Theme */
+
+body.--dark {
+  background-color: #1e1e1e;
+}
+
+.--dark .p-Widget,
+.--dark .p-TabBar-tab,
+.--dark .p-TabBar-content,
+.--dark .p-Menu-item > div::after,
+.--dark .p-TabBar-tab:hover:not(.p-mod-current),
+.--dark .p-MenuBar.p-mod-active .p-MenuBar-item.p-mod-active {
+  color: #e2e4e9;
+  border-color: #2e343d !important;
+}
+
+.--dark .p-Widget.button:hover,
+.--dark .p-Menu-item.p-mod-active,
+.--dark .p-TabBar-tab.p-mod-current,
+.--dark .p-MenuBar .p-MenuBar-item.p-mod-active,
+.--dark .p-MenuBar.p-mod-active .p-MenuBar-item.p-mod-active {
+  color: #ffffff;
+}
+
+.--dark .p-Menu,
+.--dark .p-MenuBar-item.p-mod-active,
+.--dark .p-Widget.p-Menu.p-MenuBar-menu,
+.--dark .p-TabBar-tab:hover:not(.p-mod-current) {
+  background-color: #292d2f !important;
+}
+
+.--dark .p-MenuBar,
+.--dark .p-Widget.content,
+.--dark .p-Widget.sidebar,
+.--dark .p-TabBar-tab.p-mod-current {
+  background-color: #292d2f;
+}
+
+.--dark .p-TabBar-tab,
+.--dark .p-Menu-item.p-mod-active {
+  background-color: #2d3139;
+}

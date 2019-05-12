@@ -45,21 +45,44 @@ function main(): void {
     mnemonic: 0,
     execute: () => {
       dock.activateWidget(outputLogs);
-      axios.default.post('/run',  editor.getValue(), {
-        headers: {
-          'Content-Type': 'text/plain'
-        }
-      })
-      .then(function (response) {
-        if (response.data.stderr) {
-          outputChannel.push(colors.red('[STDERR] ') + response.data.stderr)
-        }else if (response.data.stdout) {
-          outputChannel.push(colors.green('[STDOUT] ') + response.data.stdout)
-        }
-      })
-      .catch(function (error) {
-        outputChannel.push(colors.red('[ERROR] ') + error.message)
-      });
+      axios.default
+        .post('/run', editor.getValue(), {
+          headers: {
+            'Content-Type': 'text/plain',
+          },
+        })
+        .then(function(response) {
+          if (response.data.stderr) {
+            outputChannel.push(colors.bold.red('[STDERR] ') + response.data.stderr);
+          } else if (response.data.stdout) {
+            outputChannel.push(colors.bold.green('[STDOUT] ') + response.data.stdout);
+          }
+        })
+        .catch(function(error) {
+          outputChannel.push(colors.bold.red('[ERROR] ') + error.message);
+        });
+    },
+  });
+
+  commands.addCommand('light-theme', {
+    label: 'Light',
+    mnemonic: 0,
+    execute: () => {
+      editor.setTheme('vs');
+      if (document.body.classList.value != '') {
+        document.body.classList.toggle('--dark');
+      }
+    },
+  });
+
+  commands.addCommand('dark-theme', {
+    label: 'Dark',
+    mnemonic: 0,
+    execute: () => {
+      editor.setTheme('vs-dark');
+      if (document.body.classList.value != '--dark') {
+        document.body.classList.toggle('--dark');
+      }
     },
   });
 
@@ -77,6 +100,12 @@ function main(): void {
   outputMenu.addItem({ type: 'separator' });
   outputMenu.addItem({ command: 'close-output' });
 
+  let themeMenu = new Menu({ commands });
+  themeMenu.title.label = 'Theme';
+  themeMenu.title.mnemonic = 0;
+  themeMenu.addItem({ command: 'dark-theme' });
+  themeMenu.addItem({ command: 'light-theme' });
+
   let taskMenu = new Menu({ commands });
   taskMenu.title.label = 'Run';
   taskMenu.title.mnemonic = 0;
@@ -84,6 +113,7 @@ function main(): void {
 
   let menuBar = new MenuBar();
   menuBar.addMenu(outputMenu);
+  menuBar.addMenu(themeMenu);
   menuBar.addMenu(taskMenu);
   menuBar.id = 'menuBar';
 

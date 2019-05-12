@@ -12,16 +12,16 @@ export class DebugWindow implements Window {
     ...actions: T[]
   ): Thenable<T | undefined> {
     if (type === MessageType.Error) {
-      debugChannel.push(colors.red('[ERROR] ') + message);
+      debugChannel.push(colors.bold.red('[ERROR] ') + message);
     }
     if (type === MessageType.Warning) {
-      debugChannel.push(colors.yellow('[Warning] ') + message);
+      debugChannel.push(colors.bold.yellow('[Warning] ') + message);
     }
     if (type === MessageType.Info) {
-      debugChannel.push(colors.gray('[Info] ') + message);
+      debugChannel.push(colors.bold.gray('[Info] ') + message);
     }
     if (type === MessageType.Log) {
-      debugChannel.push(colors.green('[Log] ') + message);
+      debugChannel.push(colors.bold.green('[Log] ') + message);
     }
     return Promise.resolve(undefined);
   }
@@ -37,12 +37,8 @@ export class DebugWindow implements Window {
       appendLine(line: string): void {
         console.log(line);
       },
-      show(): void {
-        
-      },
-      dispose(): void {
-       
-      },
+      show(): void {},
+      dispose(): void {},
     };
     this.channels.set(name, channel);
     return channel;

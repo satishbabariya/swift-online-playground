@@ -15,3 +15,12 @@
   line-height: 20px;
   overflow: scroll;
 }
+
+.--dark .p-Widget.log {
+  background-color: #1e1e1e;
+  scrollbar-color: dark;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
