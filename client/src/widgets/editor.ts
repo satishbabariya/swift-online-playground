@@ -26,6 +26,8 @@ import { debugChannel } from '../services/channels';
 
 import * as colors from 'ansi-colors';
 
+import { swiftLanguageConfiguration , swiftMonarchTokens } from '../services/swift-language-support'
+
 export class Editor extends Widget {
   editor: monaco.editor.IStandaloneCodeEditor;
   langauge = 'swift';
@@ -40,6 +42,9 @@ export class Editor extends Widget {
       aliases: ['Swift', 'swift'],
       mimetypes: ['text/plain'],
     });
+
+    monaco.languages.setMonarchTokensProvider(this.langauge, swiftMonarchTokens);
+    monaco.languages.setLanguageConfiguration(this.langauge, swiftLanguageConfiguration);
 
     this.editor = monaco.editor.create(this.node, {
       language: this.langauge,
