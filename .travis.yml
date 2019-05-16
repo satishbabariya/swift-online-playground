@@ -14,9 +14,9 @@ script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t $DOCKER_USERNAME/playground .
   - docker push $DOCKER_USERNAME/playground
-  - echo "$GITHUB_TOKEN" | docker login docker.pkg.github.com -u "$GITHUB_USERNAME" --password-stdin
-  - docker tag $DOCKER_USERNAME/playground docker.pkg.github.com/satishbabariya/swift-online-playground/playground:0.0.1
-  - docker push docker.pkg.github.com/satishbabariya/swift-online-playground/playground:0.0.1
+  # - echo "$GITHUB_TOKEN" | docker login docker.pkg.github.com -u "$GITHUB_USERNAME" --password-stdin
+  # - docker tag $DOCKER_USERNAME/playground docker.pkg.github.com/satishbabariya/swift-online-playground/playground:0.0.1
+  # - docker push docker.pkg.github.com/satishbabariya/swift-online-playground/playground:0.0.1
 
 before_deploy:
   - cd client; yarn; yarn run webpack --env.mode production --env.SERVER_URL="$SERVER_URL"
