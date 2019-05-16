@@ -89,11 +89,21 @@ function main(): void {
     },
   });
 
-  // commands.addKeyBinding({
-  //   command: 'build-and-run',
-  //   keys: ['Shift R'] ,
-  //   selector: ''
-  // })
+  commands.addKeyBinding({
+    command: 'build-and-run',
+    keys: ['Accel R'] ,
+    selector: 'body',
+  })
+
+  commands.addKeyBinding({
+    keys: ['Accel K'],
+    selector: 'body',
+    command: 'clean-output'
+  });
+
+  document.addEventListener('keydown', (event: KeyboardEvent) => {
+    commands.processKeydownEvent(event);
+  });
 
   let outputMenu = new Menu({ commands });
   outputMenu.title.label = 'Output';

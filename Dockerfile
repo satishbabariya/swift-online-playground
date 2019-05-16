@@ -74,8 +74,8 @@ RUN set -ex \
   && ln -s /opt/yarn-v$YARN_VERSION/bin/yarnpkg /usr/local/bin/yarnpkg \
   && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz
 
-WORKDIR /usr/src/app
 
+WORKDIR /usr/src/app
 # Copy Client Build
 COPY --from=builder /client/dist public
 
@@ -83,6 +83,12 @@ COPY server .
 RUN yarn install
 RUN yarn build
 
-ENV PORT 8080
+EXPOSE 8080
+
+
+RUN groupadd -g 999 playground && \
+    useradd -r -u 999 -g playground playground
+
+USER playground
 ENTRYPOINT node dist/index.js
 
