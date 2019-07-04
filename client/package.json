@@ -18,7 +18,7 @@
     "@phosphor/commands": "^1.6.1",
     "@phosphor/messaging": "^1.2.2",
     "@phosphor/widgets": "^1.6.0",
-    "ansi-colors": "^3.2.4",
+    "ansi-colors": "^4.1.1",
     "ansi-to-react": "^5.0.0",
     "axios": "^0.18.1",
     "mobx": "^5.9.4",
