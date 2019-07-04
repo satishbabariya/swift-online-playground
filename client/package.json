@@ -33,7 +33,7 @@
     "vscode-ws-jsonrpc": "^0.0.2-1"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.4",
+    "@babel/core": "^7.4.5",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-typescript": "^7.3.3",
