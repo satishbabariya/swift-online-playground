@@ -15,7 +15,7 @@
     "build": "yarn run webpack -- --env.mode production"
   },
   "dependencies": {
-    "@phosphor/commands": "^1.6.1",
+    "@phosphor/commands": "^1.6.3",
     "@phosphor/messaging": "^1.2.3",
     "@phosphor/widgets": "^1.6.0",
     "ansi-colors": "^4.1.1",

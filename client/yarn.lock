@@ -677,34 +677,35 @@
   dependencies:
     "@phosphor/algorithm" "^1.1.3"
 
-"@phosphor/commands@^1.5.0", "@phosphor/commands@^1.6.1":
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/@phosphor/commands/-/commands-1.6.1.tgz#6f60c2a3b759316cd1363b426df3b4036bb2c7fd"
-  integrity sha512-iRgn7QX64e0VwZ91KFo964a/LVpw9XtiYIYtpymEyKY757NXvx6ZZMt1CqKfntoDcSZJeVte4eV8jJWhZoVlDA==
+"@phosphor/commands@^1.5.0", "@phosphor/commands@^1.6.3":
+  version "1.6.3"
+  resolved "https://registry.yarnpkg.com/@phosphor/commands/-/commands-1.6.3.tgz#d5481cc35dab34d0e60b3e04a64df00e1bbaffbd"
+  integrity sha512-PYNHWv6tbXAfAtKiqXuT0OBJvwbJ+RRTV60MBykMF7Vqz9UaZ9n2e/eB2EAGEFccF0PnjTCvBEZgarwwMVi8Hg==
   dependencies:
-    "@phosphor/algorithm" "^1.1.2"
-    "@phosphor/coreutils" "^1.3.0"
-    "@phosphor/disposable" "^1.1.2"
-    "@phosphor/domutils" "^1.1.2"
-    "@phosphor/keyboard" "^1.1.2"
-    "@phosphor/signaling" "^1.2.2"
+    "@phosphor/algorithm" "^1.1.3"
+    "@phosphor/coreutils" "^1.3.1"
+    "@phosphor/disposable" "^1.2.0"
+    "@phosphor/domutils" "^1.1.3"
+    "@phosphor/keyboard" "^1.1.3"
+    "@phosphor/signaling" "^1.2.3"
 
-"@phosphor/coreutils@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@phosphor/coreutils/-/coreutils-1.3.0.tgz#63292d381c012c5ab0d0196e83ced829b7e04a42"
-  integrity sha1-YyktOBwBLFqw0Blug87YKbfgSkI=
+"@phosphor/coreutils@^1.3.0", "@phosphor/coreutils@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@phosphor/coreutils/-/coreutils-1.3.1.tgz#441e34f42340f7faa742a88b2a181947a88d7226"
+  integrity sha512-9OHCn8LYRcPU/sbHm5v7viCA16Uev3gbdkwqoQqlV+EiauDHl70jmeL7XVDXdigl66Dz0LI11C99XOxp+s3zOA==
 
-"@phosphor/disposable@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@phosphor/disposable/-/disposable-1.1.2.tgz#a192dd6a2e6c69d5d09d39ecf334dab93778060e"
-  integrity sha1-oZLdai5sadXQnTns8zTauTd4Bg4=
+"@phosphor/disposable@^1.1.2", "@phosphor/disposable@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@phosphor/disposable/-/disposable-1.2.0.tgz#878b9b5863f2026bbf2935eb600c7fdc97d0d026"
+  integrity sha512-4PoWoffdrLyWOW5Qv7I8//owvZmv57YhaxetAMWeJl13ThXc901RprL0Gxhtue2ZxL2PtUjM1207HndKo2FVjA==
   dependencies:
-    "@phosphor/algorithm" "^1.1.2"
+    "@phosphor/algorithm" "^1.1.3"
+    "@phosphor/signaling" "^1.2.3"
 
-"@phosphor/domutils@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@phosphor/domutils/-/domutils-1.1.2.tgz#e2efeb052f398c42b93b89e9bab26af15cc00514"
-  integrity sha1-4u/rBS85jEK5O4npurJq8VzABRQ=
+"@phosphor/domutils@^1.1.2", "@phosphor/domutils@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@phosphor/domutils/-/domutils-1.1.3.tgz#5aeeaefb4bbfcc7c0942e5287a29d3c7f2b1a2bc"
+  integrity sha512-5CtLAhURQXXHhNXfQydDk/luG1cDVnhlu/qw7gz8/9pht0KXIAmNg/M0LKxx2oJ9+YMNCLVWxAnHAU0yrDpWSA==
 
 "@phosphor/dragdrop@^1.3.0":
   version "1.3.0"
@@ -714,10 +715,10 @@
     "@phosphor/coreutils" "^1.3.0"
     "@phosphor/disposable" "^1.1.2"
 
-"@phosphor/keyboard@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@phosphor/keyboard/-/keyboard-1.1.2.tgz#3e32234451764240a98e148034d5a8797422dd1f"
-  integrity sha1-PjIjRFF2QkCpjhSANNWoeXQi3R8=
+"@phosphor/keyboard@^1.1.2", "@phosphor/keyboard@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@phosphor/keyboard/-/keyboard-1.1.3.tgz#e5fd13af0479034ef0b5fffcf43ef2d4a266b5b6"
+  integrity sha512-dzxC/PyHiD6mXaESRy6PZTd9JeK+diwG1pyngkyUf127IXOEzubTIbu52VSdpGBklszu33ws05BAGDa4oBE4mQ==
 
 "@phosphor/messaging@^1.2.2", "@phosphor/messaging@^1.2.3":
   version "1.2.3"
@@ -732,12 +733,12 @@
   resolved "https://registry.yarnpkg.com/@phosphor/properties/-/properties-1.1.2.tgz#78cc77eff452839da02255de48e814946cc09a28"
   integrity sha1-eMx37/RSg52gIlXeSOgUlGzAmig=
 
-"@phosphor/signaling@^1.2.2":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@phosphor/signaling/-/signaling-1.2.2.tgz#3fcf97ca88e38bfb357fe8fe6bf7513347a514a9"
-  integrity sha1-P8+Xyojji/s1f+j+a/dRM0elFKk=
+"@phosphor/signaling@^1.2.2", "@phosphor/signaling@^1.2.3":
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@phosphor/signaling/-/signaling-1.2.3.tgz#2fde0ee810b0fab5f3fc765f81ed08ae671e76f1"
+  integrity sha512-DMwS0m9OgfY5ljpTsklRQPUQpTyg4obz85FyImRDacUVxUVbas95djIDEbU4s1TMzdHBBO+gfki3V4giXUvXzw==
   dependencies:
-    "@phosphor/algorithm" "^1.1.2"
+    "@phosphor/algorithm" "^1.1.3"
 
 "@phosphor/virtualdom@^1.1.2":
   version "1.1.2"
