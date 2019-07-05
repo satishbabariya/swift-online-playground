@@ -30,7 +30,7 @@
     "react-dom": "^16.8.6",
     "reconnecting-websocket": "^3.2.2",
     "vscode-languageserver": "^4.0.0",
-    "vscode-ws-jsonrpc": "^0.0.2-1"
+    "vscode-ws-jsonrpc": "^0.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
