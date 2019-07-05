@@ -17,7 +17,7 @@
   "dependencies": {
     "@phosphor/commands": "^1.6.3",
     "@phosphor/messaging": "^1.2.3",
-    "@phosphor/widgets": "^1.6.0",
+    "@phosphor/widgets": "^1.8.1",
     "ansi-colors": "^4.1.1",
     "ansi-to-react": "^5.0.0",
     "axios": "^0.19.0",

@@ -665,7 +665,7 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@phosphor/algorithm@^1.1.2", "@phosphor/algorithm@^1.1.3":
+"@phosphor/algorithm@^1.1.3":
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/@phosphor/algorithm/-/algorithm-1.1.3.tgz#fb0e974f4e81aadc06f948770b3060c4ec8a1e27"
   integrity sha512-+dkdYTBglR+qGnLVQdCvYojNZMGxf+xSl1Jeksha3pm7niQktSFz2aR5gEPu/nI5LM8T8slTpqE4Pjvq8P+IVA==
@@ -677,7 +677,7 @@
   dependencies:
     "@phosphor/algorithm" "^1.1.3"
 
-"@phosphor/commands@^1.5.0", "@phosphor/commands@^1.6.3":
+"@phosphor/commands@^1.6.3":
   version "1.6.3"
   resolved "https://registry.yarnpkg.com/@phosphor/commands/-/commands-1.6.3.tgz#d5481cc35dab34d0e60b3e04a64df00e1bbaffbd"
   integrity sha512-PYNHWv6tbXAfAtKiqXuT0OBJvwbJ+RRTV60MBykMF7Vqz9UaZ9n2e/eB2EAGEFccF0PnjTCvBEZgarwwMVi8Hg==
@@ -689,12 +689,12 @@
     "@phosphor/keyboard" "^1.1.3"
     "@phosphor/signaling" "^1.2.3"
 
-"@phosphor/coreutils@^1.3.0", "@phosphor/coreutils@^1.3.1":
+"@phosphor/coreutils@^1.3.1":
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/@phosphor/coreutils/-/coreutils-1.3.1.tgz#441e34f42340f7faa742a88b2a181947a88d7226"
   integrity sha512-9OHCn8LYRcPU/sbHm5v7viCA16Uev3gbdkwqoQqlV+EiauDHl70jmeL7XVDXdigl66Dz0LI11C99XOxp+s3zOA==
 
-"@phosphor/disposable@^1.1.2", "@phosphor/disposable@^1.2.0":
+"@phosphor/disposable@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@phosphor/disposable/-/disposable-1.2.0.tgz#878b9b5863f2026bbf2935eb600c7fdc97d0d026"
   integrity sha512-4PoWoffdrLyWOW5Qv7I8//owvZmv57YhaxetAMWeJl13ThXc901RprL0Gxhtue2ZxL2PtUjM1207HndKo2FVjA==
@@ -702,25 +702,25 @@
     "@phosphor/algorithm" "^1.1.3"
     "@phosphor/signaling" "^1.2.3"
 
-"@phosphor/domutils@^1.1.2", "@phosphor/domutils@^1.1.3":
+"@phosphor/domutils@^1.1.3":
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/@phosphor/domutils/-/domutils-1.1.3.tgz#5aeeaefb4bbfcc7c0942e5287a29d3c7f2b1a2bc"
   integrity sha512-5CtLAhURQXXHhNXfQydDk/luG1cDVnhlu/qw7gz8/9pht0KXIAmNg/M0LKxx2oJ9+YMNCLVWxAnHAU0yrDpWSA==
 
-"@phosphor/dragdrop@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@phosphor/dragdrop/-/dragdrop-1.3.0.tgz#7ce6ad39d6ca216d62a56f78104d02a77ae67307"
-  integrity sha1-fOatOdbKIW1ipW94EE0Cp3rmcwc=
+"@phosphor/dragdrop@^1.3.3":
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/@phosphor/dragdrop/-/dragdrop-1.3.3.tgz#9487d27a6eb8cd54bfe6d91eaffc9d0852817b61"
+  integrity sha512-+SrlGsVQwY8OHCWxE/Zvihpk6Rc6bytJDqOUUTZqdL8hvM9QZeopAFioPDxuo1pTj87Um6cR4ekvbTU4KZ/90w==
   dependencies:
-    "@phosphor/coreutils" "^1.3.0"
-    "@phosphor/disposable" "^1.1.2"
+    "@phosphor/coreutils" "^1.3.1"
+    "@phosphor/disposable" "^1.2.0"
 
-"@phosphor/keyboard@^1.1.2", "@phosphor/keyboard@^1.1.3":
+"@phosphor/keyboard@^1.1.3":
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/@phosphor/keyboard/-/keyboard-1.1.3.tgz#e5fd13af0479034ef0b5fffcf43ef2d4a266b5b6"
   integrity sha512-dzxC/PyHiD6mXaESRy6PZTd9JeK+diwG1pyngkyUf127IXOEzubTIbu52VSdpGBklszu33ws05BAGDa4oBE4mQ==
 
-"@phosphor/messaging@^1.2.2", "@phosphor/messaging@^1.2.3":
+"@phosphor/messaging@^1.2.3":
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/@phosphor/messaging/-/messaging-1.2.3.tgz#860423261df8ac6c30344cc036b10b0e83d3c0db"
   integrity sha512-89Ps4uSRNOEQoepB/0SDoyPpNUWd6VZnmbMetmeXZJHsuJ1GLxtnq3WBdl7UCVNsw3W9NC610pWaDCy/BafRlg==
@@ -728,41 +728,41 @@
     "@phosphor/algorithm" "^1.1.3"
     "@phosphor/collections" "^1.1.3"
 
-"@phosphor/properties@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@phosphor/properties/-/properties-1.1.2.tgz#78cc77eff452839da02255de48e814946cc09a28"
-  integrity sha1-eMx37/RSg52gIlXeSOgUlGzAmig=
+"@phosphor/properties@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@phosphor/properties/-/properties-1.1.3.tgz#63e4355be5e22a411c566fd1860207038f171598"
+  integrity sha512-GiglqzU77s6+tFVt6zPq9uuyu/PLQPFcqZt914ZhJ4cN/7yNI/SLyMzpYZ56IRMXvzK9TUgbRna6URE3XAwFUg==
 
-"@phosphor/signaling@^1.2.2", "@phosphor/signaling@^1.2.3":
+"@phosphor/signaling@^1.2.3":
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/@phosphor/signaling/-/signaling-1.2.3.tgz#2fde0ee810b0fab5f3fc765f81ed08ae671e76f1"
   integrity sha512-DMwS0m9OgfY5ljpTsklRQPUQpTyg4obz85FyImRDacUVxUVbas95djIDEbU4s1TMzdHBBO+gfki3V4giXUvXzw==
   dependencies:
     "@phosphor/algorithm" "^1.1.3"
 
-"@phosphor/virtualdom@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@phosphor/virtualdom/-/virtualdom-1.1.2.tgz#ce55c86eef31e5d0e26b1dc96ea32bd684458f41"
-  integrity sha1-zlXIbu8x5dDiax3JbqMr1oRFj0E=
+"@phosphor/virtualdom@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@phosphor/virtualdom/-/virtualdom-1.1.3.tgz#33ddebc710ad5bd136fd5f61d7adb4fa14e781e0"
+  integrity sha512-V8PHhhnZCRa5esrC4q5VthqlLtxTo9ZV1mZ6b4YEloapca1S1nggZSQhrSlltXQjtYNUaWJZUZ/BlFD8wFtIEQ==
   dependencies:
-    "@phosphor/algorithm" "^1.1.2"
+    "@phosphor/algorithm" "^1.1.3"
 
-"@phosphor/widgets@^1.6.0":
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/@phosphor/widgets/-/widgets-1.6.0.tgz#ebba8008b6b13247d03e73e5f3872c90d2c9c78f"
-  integrity sha512-HqVckVF8rJ15ss0Zf/q0AJ69ZKNFOO26qtNKAdGZ9SmmkSMf73X6pB0R3Fj5+Y4Sjl8ezIIKG6mXj+DxOofnwA==
+"@phosphor/widgets@^1.8.1":
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/@phosphor/widgets/-/widgets-1.8.1.tgz#e6398984a37b17b0a55417eab5e3f3517af88186"
+  integrity sha512-OY5T0nAioYTitPks/lCHm7a6QpjRB/XviIT2j6WtYm5J1U8MluIPpClqZ/NQbZfm23BYpmJeiQQyZA+5YphsDA==
   dependencies:
-    "@phosphor/algorithm" "^1.1.2"
-    "@phosphor/commands" "^1.5.0"
-    "@phosphor/coreutils" "^1.3.0"
-    "@phosphor/disposable" "^1.1.2"
-    "@phosphor/domutils" "^1.1.2"
-    "@phosphor/dragdrop" "^1.3.0"
-    "@phosphor/keyboard" "^1.1.2"
-    "@phosphor/messaging" "^1.2.2"
-    "@phosphor/properties" "^1.1.2"
-    "@phosphor/signaling" "^1.2.2"
-    "@phosphor/virtualdom" "^1.1.2"
+    "@phosphor/algorithm" "^1.1.3"
+    "@phosphor/commands" "^1.6.3"
+    "@phosphor/coreutils" "^1.3.1"
+    "@phosphor/disposable" "^1.2.0"
+    "@phosphor/domutils" "^1.1.3"
+    "@phosphor/dragdrop" "^1.3.3"
+    "@phosphor/keyboard" "^1.1.3"
+    "@phosphor/messaging" "^1.2.3"
+    "@phosphor/properties" "^1.1.3"
+    "@phosphor/signaling" "^1.2.3"
+    "@phosphor/virtualdom" "^1.1.3"
 
 "@types/events@*":
   version "3.0.0"
