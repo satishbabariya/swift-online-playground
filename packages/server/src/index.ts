@@ -26,7 +26,7 @@ app.get('/', function(req, res) {
 });
 
 app.post('/run', function(req, res) {
-  return tmp.tmpName({ postfix: '.go' }, function _tempFileCreated(
+  return tmp.tmpName({ postfix: '.swift' }, function _tempFileCreated(
     err,
     path,
     fd,
