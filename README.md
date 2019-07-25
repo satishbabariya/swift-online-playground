@@ -15,9 +15,9 @@ For Developement
 
 ```sh
 # Install dependencies
-yarn
+yarn bootstrap
 
-# Building Client or Server
+# Building Client and Server
 yarn build
 
 # Start the Web Application
