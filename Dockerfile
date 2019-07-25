@@ -1,9 +1,3 @@
-FROM node:10 as builder
-WORKDIR /client
-COPY client .
-RUN yarn install
-RUN yarn build
-
 FROM satishbabariya/sourcekit-lsp
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -75,20 +69,17 @@ RUN set -ex \
   && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz
 
 
-WORKDIR /usr/src/app
-# Copy Client Build
-COPY --from=builder /client/dist public
-
-COPY server .
-RUN yarn install
+COPY . .
+RUN yarn bootstrap
 RUN yarn build
 
-EXPOSE 8080
+WORKDIR /dist
 
+EXPOSE 8080
 
 RUN groupadd -g 999 playground && \
     useradd -r -u 999 -g playground playground
 
 USER playground
-ENTRYPOINT node dist/index.js
+ENTRYPOINT node index.js
 

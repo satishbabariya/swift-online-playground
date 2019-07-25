@@ -7,7 +7,7 @@ import * as bodyParser from 'body-parser';
 import * as helmet from 'helmet';
 import * as cors from 'cors';
 import * as rpc from 'vscode-ws-jsonrpc';
-import { launch } from './swift-server-launcher';
+import { launch } from './server-launcher';
 import * as ws from 'ws';
 import * as shell from 'shelljs';
 import * as tmp from 'tmp';
@@ -26,7 +26,7 @@ app.get('/', function(req, res) {
 });
 
 app.post('/run', function(req, res) {
-  return tmp.tmpName({ postfix: '.swift' }, function _tempFileCreated(
+  return tmp.tmpName({ postfix: '.go' }, function _tempFileCreated(
     err,
     path,
     fd,
@@ -36,7 +36,7 @@ app.post('/run', function(req, res) {
     fs.writeFile(path, req.body, err => {
       if (err) throw err;
     });
-    return shell.exec(`swift ${path}`, function(code, stdout, stderr) {
+    return shell.exec(`go run ${path}`, function(code, stdout, stderr) {
       fs.unlinkSync(path);
       res.send({
         code: code,
