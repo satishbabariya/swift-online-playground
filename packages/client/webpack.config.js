@@ -65,11 +65,11 @@ module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) => {
         sourceMapFilename: '[file].map',
         path: path.resolve(__dirname, '../../dist/public'),
       },
-      optimization: {
-        splitChunks: {
-          chunks: 'all',
-        },
-      },
+//       optimization: {
+//         splitChunks: {
+//           chunks: 'all',
+//         },
+//       },
       plugins: [
         new CleanWebpackPlugin(['../dist/public']),
         new HtmlWebPackPlugin({
