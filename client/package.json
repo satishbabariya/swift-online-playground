@@ -28,7 +28,7 @@
     "normalize-url": "^4.3.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "reconnecting-websocket": "^4.1.10",
+    "reconnecting-websocket": "^3.2.2",
     "vscode-languageserver": "^4.0.0",
     "vscode-ws-jsonrpc": "^0.0.3"
   },
