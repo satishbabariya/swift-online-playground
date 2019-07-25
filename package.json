@@ -8,6 +8,7 @@
     "lerna": "^3.16.4"
   },
   "scripts": {
+    "postinstall": "lerna bootstrap",
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build:server && lerna run build:webpack"
   }

@@ -1,5 +1,5 @@
 # swift-online-playground
-Swift Online Playground with IntelliSense 
+Swift Online Playground with IntelliSense
 
 ![Screenshot](https://raw.githubusercontent.com/swift-playground/assets/master/Screenshot%20(27).png)
 
@@ -21,5 +21,5 @@ yarn bootstrap
 yarn build
 
 # Start the Web Application
-yarn start
+cd dist && node index.js
 ```
