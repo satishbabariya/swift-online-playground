@@ -70,6 +70,7 @@ RUN set -ex \
 
 
 COPY . .
+RUN yarn
 RUN yarn bootstrap
 RUN yarn build
 
