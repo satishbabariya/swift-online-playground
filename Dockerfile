@@ -1,4 +1,4 @@
-FROM satishbabariya/swift-5.1-DEVELOPMENT-SNAPSHOT-2019-08-31-a
+FROM satishbabariya/swift:swift-5.1-DEVELOPMENT-SNAPSHOT-2019-08-31-a
 
 ENV DEBIAN_FRONTEND noninteractive
 
