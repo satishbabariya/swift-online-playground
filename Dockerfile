@@ -1,4 +1,4 @@
-FROM satishbabariya/sourcekit-lsp
+FROM satishbabariya/swift-5.1-DEVELOPMENT-SNAPSHOT-2019-08-31-a
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -9,6 +9,9 @@ RUN apt-get update
 RUN apt-get -qq update
 RUN apt-get install -y build-essential
 RUN apt-get install -y curl
+
+# Set absolute path to the swift toolchain
+ENV SOURCEKIT_TOOLCHAIN_PATH=/usr/lib/swift
 
 ENV NODE_VERSION 10.15.3
 
