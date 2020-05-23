@@ -8,7 +8,7 @@
     "@types/node": "^12.6.8",
     "@types/ws": "^6.0.1",
     "vscode-languageserver": "^4.0.0",
-    "vscode-ws-jsonrpc": "^0.0.2-1"
+    "vscode-ws-jsonrpc": "0.2.0"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
