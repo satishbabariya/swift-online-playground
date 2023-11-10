@@ -9,7 +9,7 @@
     "@phosphor/widgets": "^1.8.1",
     "ansi-colors": "^4.1.1",
     "ansi-to-react": "^5.0.0",
-    "axios": "^0.19.0",
+    "axios": "^1.6.0",
     "mobx": "^5.13.0",
     "mobx-react": "^6.1.1",
     "monaco-editor-core": "^0.14.6",
